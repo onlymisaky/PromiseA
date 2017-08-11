@@ -4,7 +4,7 @@ const ajax = ({type = "get", url = "#", data = '', dataType = "text"}) => {
 		type = type.toLowerCase();
 		data = convertData(data);
 		if (type === "get") {
-			url += url + data;
+			url += data;
 			xhr.open(type, url);
 			data = null;
 		} else {

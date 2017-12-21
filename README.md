@@ -10,6 +10,6 @@ ajax(option)
 	.then((response) => {})
   	.catch((e) => {});
 ```
-- [fs](fs.js)
+- [fs](fs-promise.js)
     - [Promise.prototype.then](fs-promise-example-1.js)
     - [Promise.all](fs-promise-example-2.js)

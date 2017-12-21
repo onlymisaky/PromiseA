@@ -1,4 +1,4 @@
-- [ajax](ajax.js)
+- [ajax](blob/master/ajax.js)
 ```javascript
 let options = {
 	type: "post",
@@ -10,6 +10,6 @@ ajax(option)
 	.then((response) => {})
   	.catch((e) => {});
 ```
-- [fs](fs.js)
- - [Promise.prototype.then](fs-promise-example-1.js)
- - [Promise.all](fs-promise-example-2.js)
+- [fs](blob/master/fs.js)
+    - [Promise.prototype.then](blob/master/fs-promise-example-1.js)
+    - [Promise.all](blob/master/fs-promise-example-2.js)

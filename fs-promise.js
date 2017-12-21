@@ -7,3 +7,5 @@ const fsPromise = (...args) => {
         });
     });
 }
+
+module.exports = fsPromise;

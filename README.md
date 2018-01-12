@@ -1,14 +1,14 @@
 - [ajax](blob/master/ajax.js)
 ```javascript
 let options = {
-	type: "post",
-	url: "##",
-	data: {},
-	dataType: "json"
+    type: "post",
+    url: "##",
+    data: {},
+    dataType: "json"
 };
 ajax(option)
-	.then((response) => {})
-  	.catch((e) => {});
+    .then((response) => { })
+    .catch((e) => { });
 ```
 - readFile
     - [promise](read-file-promise.js)([demo](read-file-promise.example.js))

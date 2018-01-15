@@ -1,4 +1,4 @@
-- [ajax](blob/master/ajax.js)
+- [ajax](ajax-promise.js)
 ```javascript
 let options = {
     type: "post",

@@ -12,7 +12,7 @@ ajax(option)
 ```
 - readFile
     - [promise](read-file-promise.js)([demo](read-file-promise.example.js))
-    - [async/await](read-file-async.js)
+    - [async/await](read-file-async.js)([demo](read-file-async.example.js))
 <br>
 <br>
 <br>

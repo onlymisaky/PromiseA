@@ -3,8 +3,8 @@ const readFilePromise = require('./read-file-promise');
 const readFileAsync = async (...args) => {
     try {
         return await readFilePromise(...args);
-    } catch (error) {
-        throw (new Error(error));
+    } catch (err) {
+        throw (new Error(err));
     }
 }
 
@@ -29,8 +29,8 @@ const readFilesAsync = async (args) => {
 
         return data;
 
-    } catch (error) {
-        throw (new Error(error));
+    } catch (err) {
+        throw (new Error(err));
     }
 }
 

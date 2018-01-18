@@ -6,8 +6,8 @@ readFileAsync.readFileAsync('./README.md', 'utf-8')
     .then(data => {
         console.log(data);
     })
-    .catch(error => {
-        console.log(error);
+    .catch(err => {
+        console.log(err);
     });
 
 //#endregion
@@ -24,8 +24,8 @@ readFileAsync.readFilesAsync(files)
     .then(data => {
         console.log(data.join(''));
     })
-    .catch(error => {
-        console.log(error);
+    .catch(err => {
+        console.log(err);
     });
 
 //#endregion

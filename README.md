@@ -70,3 +70,8 @@ readFileAsync('./README.md').then(data => {
     console.log(data);  // 123
 });
 ```
+- Generator
+
+说实话，`Generator函数`对我而言实在太难理解了，主要是搞不明白它到底有什么用，再加上`next`可以传参改变上一次的值就更让人头晕了。
+
+实际上，是先有`Generator函数`，然后[TJ Holowaychuk](https://github.com/tj)发布了[co](https://github.com/tj/co)模块，可以`Generator函数`可以自动执行，至此`Generator函数`威力大增，再到后来`ES7`新增`async`函数，功能和[co](https://github.com/tj/co)模块类似，但是写法更加简便。

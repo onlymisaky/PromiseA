@@ -1,8 +1,6 @@
-const sleep = (ms = 1) => {
-    return new Promise((resolve, reject) => {
-        setTimeout(resolve, ms);
-    });
-}
+const sleep = (ms = 1) => new Promise((resolve, reject) => {
+    setTimeout(resolve, ms);
+});
 
 
 (async () => {

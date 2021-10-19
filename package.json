@@ -1,0 +1,22 @@
+{
+  "name": "promise-a",
+  "version": "1.0.0",
+  "description": "",
+  "main": "PromiseA.js",
+  "devDependencies": {
+    "promises-aplus-tests": "^2.1.2"
+  },
+  "scripts": {
+    "test": "promises-aplus-tests PromiseA.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/onlymisaky/promise-async.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/onlymisaky/promise-async/issues"
+  },
+  "homepage": "https://github.com/onlymisaky/promise-async#readme"
+}

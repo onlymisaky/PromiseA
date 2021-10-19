@@ -9,6 +9,6 @@ export const loadImg = url => new Promise((resolve, reject) => {
 export const readFile = (blob, readAs, encoding) => new Promise((resolve, reject) => {
     const fr = new FileReader();
     fr.onload = () => resolve(fr.result);
-    fr.onerror = () => resolve(fr.error);
+    fr.onerror = () => reject(fr.error);
     fr[readAs](blob, encoding);
 });

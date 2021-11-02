@@ -240,4 +240,39 @@ class PromiseA {
     });
   }
 
+  /**
+   * 依次执行
+   */
+  static order(promiseFuncs) {
+    let promise = PromiseA.resolve();
+    let results = [];
+    let arr = promiseFuncs.slice(0);
+    arr.push(() => PromiseA.resolve());
+
+    const resolve = (func) => func()
+      .then((res) => ({ status: 'fulfilled', value: res, }))
+      .catch((err) => ({ status: 'rejected', reason: err, }));
+
+    if (typeof Array.prototype.reduce === 'function') {
+      promise = arr.reduce((prev, func, index) => {
+        return prev.then((res) => {
+          if (index > 0) {
+            results.push(res);
+          }
+          return resolve(func);
+        });
+      }, promise);
+    } else {
+      arr.forEach((func, index) => {
+        promise = promise.then((res) => {
+          if (index > 0) {
+            results.push(res);
+          }
+          return resolve(func);
+        });
+      });
+    }
+
+    return promise.then(() => results);
+  }
 }

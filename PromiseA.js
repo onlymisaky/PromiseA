@@ -243,15 +243,14 @@ class PromiseA {
   /**
    * 依次执行
    */
-  static order(promiseFuncs) {
+  static order(promiseQueue) {
     let promise = PromiseA.resolve();
     let results = [];
-    let arr = promiseFuncs.slice(0);
+    let arr = promiseQueue.slice(0);
     arr.push(() => PromiseA.resolve());
 
-    const resolve = (func) => func()
-      .then((res) => ({ status: 'fulfilled', value: res, }))
-      .catch((err) => ({ status: 'rejected', reason: err, }));
+    const resolve = (func) => PromiseA.allSettled([func()])
+      .then((res) => res[0]);
 
     if (typeof Array.prototype.reduce === 'function') {
       promise = arr.reduce((prev, func, index) => {
@@ -274,5 +273,40 @@ class PromiseA {
     }
 
     return promise.then(() => results);
+  }
+
+  // https://segmentfault.com/a/1190000016389127
+  static limit(concurrent, promiseQueue) {
+    const promises = [];
+    const executing = [];
+    let index = 0;
+
+    function enqueue() {
+      if (index === promiseQueue.length) {
+        return PromiseA.resolve();
+      }
+
+      const promise = promiseQueue[index];
+
+      const p = PromiseA.resolve().then(
+        () => PromiseA.allSettled([promise()]).then((res) => res[0])
+      );
+      promises.push(p);
+
+      const execute = p.then(() => {
+        const index = executing.indexOf(execute);
+        executing.splice(index, 1)
+      });
+      executing.push(execute);
+
+      let r = PromiseA.resolve();
+      if (executing.length >= concurrent) {
+        r = PromiseA.race(executing);
+      }
+
+      return r.then(() => enqueue());
+    }
+
+    return enqueue().then(() => PromiseA.all(results));
   }
 }

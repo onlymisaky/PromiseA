@@ -239,6 +239,15 @@ class PromiseA {
       }
     });
   }
+  
+  static withResolvers() {
+    let resolve, reject;
+    const deferred = new PromiseA((res, rej) => {
+      resolve = res;
+      reject = rej;
+    });
+    return { resolve, reject, deferred }
+  }
 
   /**
    * 依次执行
